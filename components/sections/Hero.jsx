@@ -108,7 +108,7 @@ const Hero = () => {
           <div className="flex items-center gap-3 mb-8 reveal">
             <span className="h-px w-12" style={{ background: "var(--accent)" }} />
             <span className="font-grotesk text-[11px] tracking-[0.32em] uppercase text-[var(--accent)]">
-              Portfolio \u00b7 2026 \u00b7 Full Stack Developer
+              Portfolio · 2026 · Full Stack Developer
             </span>
           </div>
 

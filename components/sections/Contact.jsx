@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Send, Check, Github, Linkedin, Mail, AlertCircle } from "lucide-react";
+import { Send, Check, Mail, AlertCircle } from "lucide-react";
+import { VscGithubAlt } from "react-icons/vsc";
+import { FiLinkedin } from "react-icons/fi";
 import { profile } from "../../data/mock";
 // import { useToast } from "../hooks/use-toast";
 
@@ -142,7 +144,7 @@ const Contact = () => {
                 </span>
               </a>
               <div className="flex items-center gap-4 pt-4">
-                {/* <a
+                <a
                   href={profile.social.github}
                   target="_blank"
                   rel="noreferrer"
@@ -150,9 +152,9 @@ const Contact = () => {
                   className="w-11 h-11 inline-flex items-center justify-center border transition-all duration-500"
                   style={{ borderColor: "rgba(224,225,221,0.18)", color: "var(--text)" }}
                 >
-                  <Github size={18} strokeWidth={1.5} />
-                </a> */}
-                {/* <a
+                  <VscGithubAlt size={20} />
+                </a>
+                <a
                   href={profile.social.linkedin}
                   target="_blank"
                   rel="noreferrer"
@@ -160,8 +162,8 @@ const Contact = () => {
                   className="w-11 h-11 inline-flex items-center justify-center border transition-all duration-500"
                   style={{ borderColor: "rgba(224,225,221,0.18)", color: "var(--text)" }}
                 >
-                  <Linkedin size={18} strokeWidth={1.5} />
-                </a> */}
+                  <FiLinkedin size={20} strokeWidth={1.5} />
+                </a>
               </div>
             </div>
           </div>
