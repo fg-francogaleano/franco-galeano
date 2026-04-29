@@ -1,5 +1,7 @@
 import React from "react";
-import { Github, Linkedin, ArrowUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
+import { VscGithubAlt } from "react-icons/vsc";
+import { FiLinkedin } from "react-icons/fi";
 import { profile } from "../../data/mock";
 
 const Footer = () => {
@@ -21,17 +23,17 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            {/* <a
-              href={profile.social.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-              className="w-10 h-10 inline-flex items-center justify-center border transition-colors duration-500 hover:text-[var(--accent)]"
-              style={{ borderColor: "rgba(224,225,221,0.15)", color: "var(--text)" }}
-            >
-              <Github size={16} strokeWidth={1.5} />
-            </a> */}
-            {/* <a
+                <a
+                href={profile.social.github}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+                className="w-10 h-10 inline-flex items-center justify-center border transition-colors duration-500 hover:text-[var(--accent)]"
+                style={{ borderColor: "rgba(224,225,221,0.15)", color: "var(--text)" }}
+                >
+                <VscGithubAlt size={20} />
+                </a>
+            <a
               href={profile.social.linkedin}
               target="_blank"
               rel="noreferrer"
@@ -39,8 +41,8 @@ const Footer = () => {
               className="w-10 h-10 inline-flex items-center justify-center border transition-colors duration-500 hover:text-[var(--accent)]"
               style={{ borderColor: "rgba(224,225,221,0.15)", color: "var(--text)" }}
             >
-              <Linkedin size={16} strokeWidth={1.5} />
-            </a> */}
+              <FiLinkedin size={20} strokeWidth={1.5} />
+            </a>
             <button
               type="button"
               onClick={top}
