@@ -54,15 +54,15 @@ export const skills = [
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "FastAPI", "REST", "GraphQL"],
+    items: ["Node.js", "Express"],
   },
   {
     category: "Bases de datos",
-    items: ["PostgreSQL", "MongoDB", "Redis"],
+    items: ["PostgreSQL", "MongoDB"],
   },
   {
     category: "Tooling",
-    items: ["Git", "Docker", "Vercel", "Figma"],
+    items: ["GitHub", "Vercel", "Figma"],
   },
 ];
 
