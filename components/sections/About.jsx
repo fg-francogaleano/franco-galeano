@@ -83,7 +83,7 @@ const About = () => {
           {/* Right column: portrait + stats */}
           <div className="lg:col-span-5">
             <div className="reveal relative">
-              <div
+              {/* <div
                 aria-hidden
                 className="absolute -inset-2 z-0"
                 style={{
@@ -92,24 +92,24 @@ const About = () => {
                   filter: "blur(20px)",
                   opacity: 0.45,
                 }}
-              />
+              /> */}
               <div
-                className="relative z-10 overflow-hidden border"
+                className="relative z-10 overflow-hidden"
                 style={{ borderColor: "rgba(224,225,221,0.12)" }}
               >
                 <img
                   src={profile.avatar}
                   alt={`Retrato de ${profile.name}`}
-                  className="w-full h-[420px] md:h-[520px] object-cover grayscale-[0.15]"
+                  className="w-full h-[480px] md:h-[580px] object-cover"
                   loading="lazy"
                 />
-                <div
+                {/* <div
                   className="absolute inset-0 pointer-events-none"
                   style={{
                     background:
                       "linear-gradient(180deg, transparent 55%, rgba(13,20,33,0.85) 100%)",
                   }}
-                />
+                /> */}
                 <div className="absolute left-0 right-0 bottom-0 p-5 flex items-end justify-between">
                   <div>
                     <div className="font-grotesk text-[10px] tracking-[0.32em] uppercase text-white/50">

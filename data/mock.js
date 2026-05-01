@@ -16,7 +16,7 @@ export const profile = {
     linkedin: "https://linkedin.com/in/francogaleano",
   },
   avatar:
-    "https://images.pexels.com/photos/19805878/pexels-photo-19805878.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "/profile2.png",
   heroImage:
     "https://customer-assets.emergentagent.com/job_f343db4b-d885-4ade-94d4-464ac5685c4d/artifacts/q8ixn74o_image-hero.png",
 };
@@ -69,40 +69,40 @@ export const skills = [
 export const projects = [
   {
     id: "p1",
-    title: "Atlas Analytics",
+    title: "Puerta de Paz",
     description:
-      "Plataforma SaaS de visualizaci\u00f3n de datos en tiempo real con paneles personalizables y alertas inteligentes.",
-    tags: ["Next.js", "TypeScript", "D3.js", "PostgreSQL"],
+      "Landing page autogestionable con Sanity Studio para administrar eventos, información y donaciones fácilmente.",
+    tags: ["Vite.js", "React", "sanity.io", "Material MUI"],
     year: "2025",
     client: "SaaS / Producto propio",
     image:
-      "https://images.pexels.com/photos/27141316/pexels-photo-27141316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "/puerta-de-paz.png",
     link: "#",
     span: "large",
   },
   {
     id: "p2",
-    title: "Noir Atelier",
+    title: "Frident",
     description:
-      "E-commerce premium para una marca de moda independiente. Checkout sin fricci\u00f3n y catalog\u00e1cion editorial.",
-    tags: ["React", "Stripe", "Tailwind", "Sanity"],
-    year: "2024",
+      "Sitio web premium para clínica odontológica, integrando dos sistemas automatizados para captación de pacientes.",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    year: "2026",
     client: "Cliente freelance",
     image:
-      "https://images.pexels.com/photos/10976285/pexels-photo-10976285.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "/frident1.png",
     link: "#",
     span: "small",
   },
   {
     id: "p3",
-    title: "Constellation OS",
+    title: "Dolar Actual",
     description:
-      "Experiencia interactiva 3D para una agencia creativa. Animaciones WebGL, audio reactivo y narrativa scroll-driven.",
-    tags: ["Three.js", "GSAP", "WebGL", "Framer Motion"],
-    year: "2024",
-    client: "Agencia creativa",
+      "Portal financiero en tiempo real con cotizaciones del dólar y agregador de noticias económicas, políticas y financieras.",
+    tags: ["Next.js", "Tailwind CSS", "Mongo DB"],
+    year: "2026",
+    client: "Proyecto personal",
     image:
-      "https://images.unsplash.com/photo-1741795990628-7ec99d7d2044?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMG5lb24lMjBjb2RlfGVufDB8fHx8MTc3NzM4MzcyMHww&ixlib=rb-4.1.0&q=85",
+      "/dolar-actual.png",
     link: "#",
     span: "full",
   },
