@@ -94,13 +94,13 @@ const Hero = () => {
           className="w-full h-full object-cover"
           style={{ opacity: 0.7 }}
         />
-        <div
+        {/* <div
           className="absolute inset-0"
           style={{
             background:
               "radial-gradient(circle at 70% 35%, rgba(0,210,255,0.08), transparent 55%), linear-gradient(180deg, rgba(13,20,33,0.35) 0%, rgba(13,20,33,0.55) 45%, rgba(27,38,59,0.95) 80%, var(--bg) 100%)",
           }}
-        />
+        /> */}
       </div>
 
       <div className="relative z-10 w-full md:pl-[88px]">

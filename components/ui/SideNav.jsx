@@ -34,9 +34,9 @@ const SideNav = () => {
     <>
       {/* Desktop side nav */}
       <nav
-        aria-label="Navegaci\u00f3n principal"
+        aria-label="Navegacion principal"
         className="hidden md:flex fixed left-0 top-0 h-screen w-[88px] z-40 flex-col items-center justify-center gap-2 border-r border-white/5"
-        style={{ background: "rgba(13,20,33,0.55)", backdropFilter: "blur(14px)" }}
+        style={{ backdropFilter: "blur(14px)" }}
       >
         <div className="absolute top-7 left-1/2 -translate-x-1/2 select-none">
           <span
