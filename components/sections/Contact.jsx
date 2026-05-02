@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Send, Check, Mail, AlertCircle } from "lucide-react";
 import { VscGithubAlt } from "react-icons/vsc";
 import { FiLinkedin } from "react-icons/fi";
+import emailjs from "@emailjs/browser";
+import { toast } from "sonner";
 import { profile } from "../../data/mock";
-// import { useToast } from "../hooks/use-toast";
 
 const FloatingField = ({ id, label, type = "text", multiline = false, value, onChange, error }) => {
   const [focused, setFocused] = useState(false);
@@ -64,7 +65,11 @@ const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
-//   const { toast } = useToast();
+
+  // Initialize EmailJS
+  React.useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+  }, []);
 
   const handle = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
@@ -84,19 +89,43 @@ const Contact = () => {
     ev.preventDefault();
     if (!validate()) return;
     setStatus("sending");
-    // MOCK: simulate network. Will be replaced by real backend integration.
-    await new Promise((r) => setTimeout(r, 1100));
+    
     try {
-      const stored = JSON.parse(localStorage.getItem("fg_messages") || "[]");
-      stored.unshift({ ...form, ts: new Date().toISOString() });
-      localStorage.setItem("fg_messages", JSON.stringify(stored.slice(0, 50)));
+      const templateParams = {
+        name: form.name,
+        message: form.message,
+      };
+
+      console.log("Sending email with params:", {
+        service: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        template: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        params: templateParams,
+      });
+
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+
+      console.log("Email sent successfully:", response);
       setStatus("success");
-      toast({ title: "Mensaje enviado", description: "Te respondo en menos de 24h." });
+      toast.success("Mensaje enviado", { 
+        description: "Te respondo en menos de 24h." 
+      });
       setForm({ name: "", email: "", message: "" });
       setTimeout(() => setStatus("idle"), 2400);
     } catch (err) {
+      console.error("Error sending email:", err);
+      console.error("Error details:", {
+        status: err.status,
+        text: err.text,
+        message: err.message,
+      });
       setStatus("error");
-      toast({ title: "Algo falló", description: "Intentá de nuevo en un momento." });
+      toast.error("Algo falló", { 
+        description: "Intentá de nuevo en un momento." 
+      });
       setTimeout(() => setStatus("idle"), 2400);
     }
   };
