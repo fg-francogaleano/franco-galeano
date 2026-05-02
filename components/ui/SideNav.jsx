@@ -86,7 +86,7 @@ const SideNav = () => {
           })}
         </ul>
         <div className="absolute bottom-7 left-1/2 -translate-x-1/2 text-[10px] font-grotesk tracking-[0.3em] text-white/30 [writing-mode:vertical-rl] rotate-180">
-          PORTFOLIO \u00b7 2026
+          Portfolio · 2026
         </div>
       </nav>
 

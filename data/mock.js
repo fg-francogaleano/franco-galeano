@@ -10,10 +10,10 @@ export const profile = {
   tagline:
     "Construyo interfaces vivas, precisas y sofisticadas. Especializado en frontend con sensibilidad de diseño y arquitectura full-stack.",
   location: "Buenos Aires, Argentina",
-  email: "hello@francogaleano.dev",
+  email: "fg.francogaleano@gmail.com",
   social: {
-    github: "https://github.com/francogaleano",
-    linkedin: "https://linkedin.com/in/francogaleano",
+    github: "https://github.com/fg-francogaleano",
+    linkedin: "https://www.linkedin.com/in/fran-galeano/",
   },
   avatar:
     "/profile2.png",
