@@ -243,7 +243,7 @@ const Contact = () => {
                   type="submit"
                   disabled={status === "sending"}
                   aria-label="Enviar mensaje"
-                  className="relative inline-flex items-center justify-center transition-all duration-500"
+                  className="relative inline-flex items-center justify-center transition-all duration-500 cursor-pointer"
                   style={{
                     width: status === "success" ? 56 : 168,
                     height: 56,

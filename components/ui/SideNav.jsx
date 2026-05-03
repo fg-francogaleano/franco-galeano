@@ -56,7 +56,7 @@ const SideNav = () => {
                   type="button"
                   onClick={() => go(n.id)}
                   aria-label={n.label}
-                  className="group relative flex items-center justify-center w-14 h-14 transition-colors duration-500"
+                  className="group relative flex items-center justify-center w-14 h-14 transition-colors duration-500 cursor-pointer"
                   style={{
                     color: isActive ? "var(--accent)" : "rgba(224,225,221,0.55)",
                   }}

@@ -57,7 +57,7 @@ const MagneticButton = ({ children, onClick, primary = false, ariaLabel, icon: I
       onClick={onClick}
       onMouseMove={primary ? onMouseMove : undefined}
       onMouseLeave={reset}
-      className="group relative inline-flex items-center gap-3 px-7 py-4 font-grotesk text-[12px] tracking-[0.28em] uppercase border transition-all duration-500"
+      className="group relative inline-flex items-center gap-3 px-7 py-4 font-grotesk text-[12px] tracking-[0.28em] uppercase border transition-all duration-500 cursor-pointer"
       style={{
         transform: `translate(${pos.x}px, ${pos.y}px)`,
         color: primary ? "#0d1421" : "var(--text)",
