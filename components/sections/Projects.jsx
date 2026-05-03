@@ -20,7 +20,7 @@ const ProjectCard = ({ project }) => {
     >
       <div
         className={`relative w-full overflow-hidden ${
-          isFull ? "h-[420px] md:h-[560px]" : "h-[300px] md:h-[420px]"
+          isFull ? "h-105 md:h-140" : "h-75 md:h-105"
         }`}
       >
         <img
@@ -53,16 +53,20 @@ const ProjectCard = ({ project }) => {
         >
           {project.year}
         </span>
-        <span className="font-grotesk text-[10px] tracking-[0.32em] uppercase text-white/60">
+        {/* <span className="font-grotesk text-[10px] tracking-[0.32em] uppercase text-white/60">
           {project.client}
-        </span>
+        </span> */}
       </div>
 
       {/* Bottom content */}
       <div className="absolute left-0 right-0 bottom-0 p-6 md:p-8">
         <h3
           className="font-display text-2xl md:text-4xl mb-3"
-          style={{ color: "var(--text)", fontWeight: 700, letterSpacing: "-0.02em" }}
+          style={{
+            color: "var(--text)",
+            fontWeight: 700,
+            letterSpacing: "-0.02em",
+          }}
         >
           {project.title}
         </h3>
@@ -84,7 +88,8 @@ const ProjectCard = ({ project }) => {
               key={t}
               className="font-grotesk text-[10px] tracking-[0.2em] uppercase px-2.5 py-1 border"
               style={{
-                borderColor: "rgba(224,225,221,0.18)",
+                background: "rgba(13,20,33,0.05)",
+                backdropFilter: "blur(10px)",
                 color: "rgba(224,225,221,0.85)",
               }}
             >
@@ -115,7 +120,10 @@ const ProjectCard = ({ project }) => {
 
 const Projects = () => {
   return (
-    <section id="projects" className="relative w-full md:pl-[88px] py-24 md:py-32">
+    <section
+      id="projects"
+      className="relative w-full md:pl-[88px] py-24 md:py-32"
+    >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-14 reveal">
           <div>
@@ -133,7 +141,11 @@ const Projects = () => {
             </div>
             <h2
               className="font-display text-3xl md:text-5xl"
-              style={{ color: "var(--text)", fontWeight: 700, letterSpacing: "-0.02em" }}
+              style={{
+                color: "var(--text)",
+                fontWeight: 700,
+                letterSpacing: "-0.02em",
+              }}
             >
               Proyectos seleccionados
             </h2>
@@ -142,7 +154,8 @@ const Projects = () => {
             className="font-grotesk text-sm md:text-base max-w-md"
             style={{ color: "rgba(224,225,221,0.65)" }}
           >
-            Una selección de trabajos recientes — productos digitales, sitios para marcas y experiencias interactivas.
+            Una selección de trabajos recientes — productos digitales, sitios
+            para marcas y experiencias interactivas.
           </p>
         </div>
 

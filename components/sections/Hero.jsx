@@ -103,18 +103,18 @@ const Hero = () => {
         /> */}
       </div>
 
-      <div className="relative z-10 w-full md:pl-[88px]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 pb-24 md:pb-28 pt-32">
-          <div className="flex items-center gap-3 mb-8 reveal">
-            <span className="h-px w-12" style={{ background: "var(--accent)" }} />
-            <span className="font-grotesk text-[11px] tracking-[0.32em] uppercase text-[var(--accent)]">
-              Portfolio · 2026 · Full Stack Developer
+      <div className="relative z-10 w-full md:pl-22">
+        <div className="max-w-350 mx-auto px-6 md:px-12 pb-24 md:pb-28 pt-32">
+          <div className="flex items-center gap-3 mb-4 reveal">
+            <span className="font-grotesk text-[11px] tracking-[0.32em] uppercase text-accent">
+              Full Stack Developer
             </span>
           </div>
 
           <h1
             className="font-display reveal"
             style={{
+              margin: 0,
               fontWeight: 800,
               lineHeight: 0.92,
               letterSpacing: "-0.03em",
@@ -173,7 +173,7 @@ const Hero = () => {
               Scroll
             </span>
             <span
-              className="h-[1px] w-16"
+              className="h-px w-16"
               style={{ background: "rgba(255,255,255,0.25)" }}
             />
           </div>

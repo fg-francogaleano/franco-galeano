@@ -63,60 +63,60 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #1f1f1f;
+  --foreground: #fafaf9;
+  --card: #353535;
+  --card-foreground: #fafaf9;
+  --popover: #353535;
+  --popover-foreground: #fafaf9;
+  --primary: #ebebeb;
+  --primary-foreground: #353535;
+  --secondary: #454545;
+  --secondary-foreground: #fafaf9;
+  --muted: #454545;
+  --muted-foreground: #b3b3b3;
+  --accent: #454545;
+  --accent-foreground: #fafaf9;
+  --destructive: #b63a1a;
+  --border: #ffffff19;
+  --input: #ffffff26;
+  --ring: #8d8d8d;
+  --chart-1: #dedede;
+  --chart-2: #8d8d8d;
+  --chart-3: #707070;
+  --chart-4: #5f5f5f;
+  --chart-5: #454545;
+  --sidebar: #353535;
+  --sidebar-foreground: #fafaf9;
+  --sidebar-primary: #4f46e5;
+  --sidebar-primary-foreground: #fafaf9;
+  --sidebar-accent: #454545;
+  --sidebar-accent-foreground: #fafaf9;
+  --sidebar-border: #ffffff19;
+  --sidebar-ring: #8d8d8d;
 }
 
 @layer base {
   :root {
-    --background: 215 35% 17%;
-    --foreground: 60 7% 87%;
-    --card: 215 35% 17%;
-    --card-foreground: 60 7% 87%;
-    --popover: 215 35% 17%;
-    --popover-foreground: 60 7% 87%;
-    --primary: 192 100% 50%;
-    --primary-foreground: 215 50% 10%;
-    --secondary: 215 30% 22%;
-    --secondary-foreground: 60 7% 87%;
-    --muted: 215 30% 22%;
-    --muted-foreground: 60 5% 65%;
-    --accent: 192 100% 50%;
-    --accent-foreground: 215 50% 10%;
-    --destructive: 0 70% 60%;
-    --destructive-foreground: 60 7% 95%;
-    --border: 215 25% 28%;
-    --input: 215 25% 28%;
-    --ring: 192 100% 50%;
+    --background: #1a3a50;
+    --foreground: #d8dcc5;
+    --card: #1a3a50;
+    --card-foreground: #d8dcc5;
+    --popover: #1a3a50;
+    --popover-foreground: #d8dcc5;
+    --primary: #00d4ff;
+    --primary-foreground: #0a1a33;
+    --secondary: #223344;
+    --secondary-foreground: #d8dcc5;
+    --muted: #223344;
+    --muted-foreground: #a9aca0;
+    --accent: #00d4ff;
+    --accent-foreground: #0a1a33;
+    --destructive: #ff4d4d;
+    --destructive-foreground: #ebe8e0;
+    --border: #334455;
+    --input: #334455;
+    --ring: #00d4ff;
     --radius: 0;
   }
 }
@@ -126,23 +126,43 @@
     @apply border-border outline-ring/50;
   }
   body {
-  margin: 0;
-  font-family: inherit;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: var(--bg);
-  color: var(--text);
-}
+    margin: 0;
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--bg);
+    color: var(--text);
+  }
   html {
     font-family: Space Grotesk, Satoshi, -apple-system, BlinkMacSystemFont, sans-serif;
   }
 }
 
+
 @layer base {
   * {
     @apply border-border;
   }
+  
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Reset completo de márgenes y padding en encabezados */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-inline: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Reset de párrafos */
+  p {
+    margin: 0 !important;
   }
 }
