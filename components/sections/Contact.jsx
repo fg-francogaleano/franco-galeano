@@ -5,6 +5,7 @@ import { FiLinkedin } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
 import { profile } from "../../data/mock";
+import { Button } from "../ui/button";
 
 const FloatingField = ({ id, label, type = "text", multiline = false, value, onChange, error }) => {
   const [focused, setFocused] = useState(false);
@@ -65,6 +66,7 @@ const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const buttonRef = React.useRef(null);
 
   // Initialize EmailJS
   React.useEffect(() => {
@@ -138,25 +140,23 @@ const Contact = () => {
           <div className="lg:col-span-5 reveal">
             <div className="flex items-center gap-4 mb-6">
               <span
-                className="font-grotesk text-xs tracking-[0.32em] uppercase"
-                style={{ color: "var(--accent)" }}
+                className="font-grotesk text-xs tracking-[0.32em] uppercase text-accent"
               >
                 03
               </span>
               <span
-                className="h-px w-12"
-                style={{ background: "var(--accent)" }}
+                className="h-px w-12 bg-accent"
               />
             </div>
             <h2
-              className="font-display text-4xl md:text-6xl mb-6"
-              style={{ color: "var(--text)", fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1 }}
+              className="font-display text-4xl md:text-6xl mb-6 font-extrabold"
+              style={{ letterSpacing: "-0.025em", lineHeight: 1 }}
             >
               Iniciemos tu próximo proyecto.
             </h2>
             <p
-              className="font-grotesk text-base md:text-lg max-w-md"
-              style={{ color: "rgba(224,225,221,0.7)" }}
+              className="font-grotesk text-base md:text-lg max-w-md mt-1"
+              style={{ color: "rgba(224,225,221,0.7)"}}
             >
               ¿Tenés una idea, producto o desafío técnico? Escribime y arranquemos la conversación.
             </p>
@@ -168,7 +168,7 @@ const Contact = () => {
                 style={{ color: "var(--text)" }}
               >
                 <Mail size={18} strokeWidth={1.5} style={{ color: "var(--accent)" }} />
-                <span className="group-hover:text-[var(--accent)] transition-colors duration-500">
+                <span className="group-hover:text-accent transition-colors duration-500">
                   {profile.email}
                 </span>
               </a>
@@ -178,8 +178,7 @@ const Contact = () => {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="GitHub"
-                  className="w-11 h-11 inline-flex items-center justify-center border transition-all duration-500"
-                  style={{ borderColor: "rgba(224,225,221,0.18)", color: "var(--text)" }}
+                  className="w-11 h-11 inline-flex items-center justify-center border transition-all duration-500 text-text hover:text-accent hover:border-accent"
                 >
                   <VscGithubAlt size={20} />
                 </a>
@@ -188,8 +187,7 @@ const Contact = () => {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"
-                  className="w-11 h-11 inline-flex items-center justify-center border transition-all duration-500"
-                  style={{ borderColor: "rgba(224,225,221,0.18)", color: "var(--text)" }}
+                  className="w-11 h-11 inline-flex items-center justify-center border transition-all duration-500 text-text hover:text-accent hover:border-accent"
                 >
                   <FiLinkedin size={20} strokeWidth={1.5} />
                 </a>
@@ -205,7 +203,7 @@ const Contact = () => {
               className="p-6 md:p-10 border"
               style={{
                 borderColor: "rgba(224,225,221,0.10)",
-                background: "rgba(13,20,33,0.55)",
+                background: "rgba(13, 20, 33, 0.05)",
                 backdropFilter: "blur(14px)",
               }}
             >
@@ -239,11 +237,23 @@ const Contact = () => {
                 <span className="font-grotesk text-[11px] tracking-[0.28em] uppercase text-white/45">
                   Respondo en menos de 24h
                 </span>
-                <button
+                <Button
+                  ref={buttonRef}
                   type="submit"
+                  variant="outlined"
                   disabled={status === "sending"}
                   aria-label="Enviar mensaje"
                   className="relative inline-flex items-center justify-center transition-all duration-500 cursor-pointer"
+                  onMouseEnter={(e) => {
+                    if (status === "success") return;
+                    e.currentTarget.style.borderColor = "var(--accent)";
+                    e.currentTarget.style.color = "var(--accent)";
+                  }}
+                  onMouseLeave={(e) => {
+                    if (status === "success") return;
+                    e.currentTarget.style.borderColor = "rgba(224,225,221,0.4)";
+                    e.currentTarget.style.color = "var(--text)";
+                  }}
                   style={{
                     width: status === "success" ? 56 : 168,
                     height: 56,
@@ -262,10 +272,10 @@ const Contact = () => {
                   ) : (
                     <span className="flex items-center gap-3 font-grotesk text-[12px] tracking-[0.28em] uppercase">
                       {status === "sending" ? "Enviando..." : "Enviar"}
-                      <Send size={14} strokeWidth={1.6} />
+                      <Send size={14} strokeWidth={1} />
                     </span>
                   )}
-                </button>
+                </Button>
               </div>
             </form>
           </div>

@@ -24,7 +24,11 @@ const About = () => {
           <span className="h-px w-12" style={{ background: "var(--accent)" }} />
           <h2
             className="font-display text-3xl md:text-5xl"
-            style={{ color: "var(--text)", fontWeight: 700, letterSpacing: "-0.02em" }}
+            style={{
+              color: "var(--text)",
+              fontWeight: 700,
+              letterSpacing: "-0.02em",
+            }}
           >
             {aboutCopy.sectionTitle}
           </h2>
@@ -52,7 +56,11 @@ const About = () => {
                 return (
                   <div key={group.category} className="reveal">
                     <div className="flex items-center gap-3 mb-4">
-                      <Icon size={16} strokeWidth={1.5} style={{ color: "var(--accent)" }} />
+                      <Icon
+                        size={16}
+                        strokeWidth={1.5}
+                        style={{ color: "var(--accent)" }}
+                      />
                       <span className="font-grotesk text-[11px] tracking-[0.3em] uppercase text-white/55">
                         {group.category}
                       </span>
@@ -65,8 +73,8 @@ const About = () => {
                           className="font-grotesk text-xs tracking-wide px-3 py-2 border transition-colors duration-500"
                           style={{
                             borderColor: "rgba(224,225,221,0.12)",
-                            color: "rgba(224,225,221,0.9)",
-                            background: "rgba(13,20,33,0.5)",
+                            color: "rgba(224,225,221,0.85)",
+                            background: "rgba(13,20,33,0.05)",
                             backdropFilter: "blur(10px)",
                           }}
                         >
@@ -139,7 +147,7 @@ const About = () => {
                   className="reveal p-5 border"
                   style={{
                     borderColor: "rgba(224,225,221,0.08)",
-                    background: "rgba(13,20,33,0.55)",
+                    background: "rgba(13,20,33,0.05)",
                     backdropFilter: "blur(12px)",
                   }}
                 >

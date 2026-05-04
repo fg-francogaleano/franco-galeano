@@ -114,7 +114,7 @@
     --accent-foreground: #0a1a33;
     --destructive: #ff4d4d;
     --destructive-foreground: #ebe8e0;
-    --border: #334455;
+    --border: rgba(224,225,221,0.15);
     --input: #334455;
     --ring: #00d4ff;
     --radius: 0;

@@ -32,7 +32,7 @@ const useTyped = (words, opts = {}) => {
   return text;
 };
 
-const MagneticButton = ({ children, onClick, primary = false, ariaLabel, icon: Icon }) => {
+const MagneticButton = ({ children, onClick, primary = false, ariaLabel, icon: Icon, variant = "default" }) => {
   const ref = useRef(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
@@ -49,6 +49,21 @@ const MagneticButton = ({ children, onClick, primary = false, ariaLabel, icon: I
   };
   const reset = () => setPos({ x: 0, y: 0 });
 
+  const handleMouseEnter = (e) => {
+    if (!primary) {
+      e.currentTarget.style.borderColor = "var(--accent)";
+      e.currentTarget.style.color = "var(--accent)";
+    }
+  };
+
+  const handleMouseLeave = (e) => {
+    if (!primary) {
+      e.currentTarget.style.borderColor = "rgba(224,225,221,0.35)";
+      e.currentTarget.style.color = "var(--text)";
+    }
+    reset();
+  };
+
   return (
     <button
       ref={ref}
@@ -56,7 +71,8 @@ const MagneticButton = ({ children, onClick, primary = false, ariaLabel, icon: I
       aria-label={ariaLabel}
       onClick={onClick}
       onMouseMove={primary ? onMouseMove : undefined}
-      onMouseLeave={reset}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className="group relative inline-flex items-center gap-3 px-7 py-4 font-grotesk text-[12px] tracking-[0.28em] uppercase border transition-all duration-500 cursor-pointer"
       style={{
         transform: `translate(${pos.x}px, ${pos.y}px)`,

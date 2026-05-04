@@ -28,8 +28,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
-                className="w-10 h-10 inline-flex items-center justify-center border transition-colors duration-500 hover:text-[var(--accent)]"
-                style={{ borderColor: "rgba(224,225,221,0.15)", color: "var(--text)" }}
+                className="w-10 h-10 inline-flex items-center justify-center border transition-colors duration-500 hover:border-accent hover:text-accent"
                 >
                 <VscGithubAlt size={20} />
                 </a>
@@ -38,8 +37,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="w-10 h-10 inline-flex items-center justify-center border transition-colors duration-500 hover:text-[var(--accent)]"
-              style={{ borderColor: "rgba(224,225,221,0.15)", color: "var(--text)" }}
+              className="w-10 h-10 inline-flex items-center justify-center border transition-colors duration-500 hover:border-accent hover:text-accent"
             >
               <FiLinkedin size={20} strokeWidth={1.5} />
             </a>
@@ -47,7 +45,7 @@ const Footer = () => {
               type="button"
               onClick={top}
               aria-label="Volver arriba"
-              className="inline-flex items-center gap-2 px-4 h-10 border font-grotesk text-[11px] tracking-[0.28em] uppercase transition-colors duration-500"
+              className="inline-flex items-center gap-2 px-4 h-10 border font-grotesk text-[11px] tracking-[0.28em] uppercase transition-colors duration-500 cursor-pointer"
               style={{ borderColor: "rgba(0,210,255,0.35)", color: "var(--accent)" }}
             >
               Top
