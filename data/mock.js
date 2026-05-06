@@ -16,7 +16,7 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/fran-galeano/",
   },
   avatar:
-    "/profile2.png",
+    "/profile1.png",
   heroImage:
     "https://customer-assets.emergentagent.com/job_f343db4b-d885-4ade-94d4-464ac5685c4d/artifacts/q8ixn74o_image-hero.png",
 };
@@ -32,10 +32,10 @@ export const aboutCopy = {
 };
 
 export const stats = [
-  { value: "5+", label: "A\u00f1os de experiencia" },
-  { value: "32", label: "Proyectos completados" },
-  { value: "18", label: "Tecnolog\u00edas dominadas" },
-  { value: "99%", label: "Clientes satisfechos" },
+  { value: "3+", label: "A\u00f1os de experiencia" },
+  // { value: "32", label: "Proyectos completados" },
+  { value: "15", label: "Tecnolog\u00edas dominadas" },
+  // { value: "99%", label: "Clientes satisfechos" },
 ];
 
 export const skills = [
@@ -77,7 +77,7 @@ export const projects = [
     client: "SaaS / Producto propio",
     image:
       "/puerta-de-paz.png",
-    link: "#",
+    link: "https://template-church-neon.vercel.app/",
     span: "large",
   },
   {
@@ -90,7 +90,7 @@ export const projects = [
     client: "Cliente freelance",
     image:
       "/frident1.png",
-    link: "#",
+    link: "https://frident.vercel.app/",
     span: "small",
   },
   {
@@ -103,7 +103,7 @@ export const projects = [
     client: "Proyecto personal",
     image:
       "/dolar-actual.png",
-    link: "#",
+    link: "https://www.dolaractual.com.ar/",
     span: "full",
   },
 ];

@@ -111,13 +111,13 @@ const About = () => {
                   className="w-full h-[480px] md:h-[580px] object-cover"
                   loading="lazy"
                 />
-                {/* <div
+                <div
                   className="absolute inset-0 pointer-events-none"
                   style={{
                     background:
                       "linear-gradient(180deg, transparent 55%, rgba(13,20,33,0.85) 100%)",
                   }}
-                /> */}
+                />
                 <div className="absolute left-0 right-0 bottom-0 p-5 flex items-end justify-between">
                   <div>
                     <div className="font-grotesk text-[10px] tracking-[0.32em] uppercase text-white/50">
@@ -134,13 +134,13 @@ const About = () => {
                     className="font-grotesk text-[10px] tracking-[0.32em] uppercase"
                     style={{ color: "var(--accent)" }}
                   >
-                    Available
+                    Disponible
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-3">
+            {/* <div className="mt-8 grid grid-cols-2 gap-3">
               {stats.map((s) => (
                 <div
                   key={s.label}
@@ -166,7 +166,7 @@ const About = () => {
                   </div>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
