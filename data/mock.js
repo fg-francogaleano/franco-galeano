@@ -76,7 +76,7 @@ export const projects = [
     year: "2025",
     client: "SaaS / Producto propio",
     image:
-      "/puerta-de-paz.png",
+      "https://res.cloudinary.com/dexm7t5ty/image/upload/v1778114025/puerta-de-paz_w3zgv2.png",
     link: "https://template-church-neon.vercel.app/",
     span: "large",
   },
@@ -89,7 +89,7 @@ export const projects = [
     year: "2026",
     client: "Cliente freelance",
     image:
-      "/frident1.png",
+      "https://res.cloudinary.com/dexm7t5ty/image/upload/v1778113682/frident1_mfthfp.png",
     link: "https://frident.vercel.app/",
     span: "small",
   },
@@ -102,7 +102,7 @@ export const projects = [
     year: "2026",
     client: "Proyecto personal",
     image:
-      "/dolar-actual.png",
+      "https://res.cloudinary.com/dexm7t5ty/image/upload/v1778113681/dolar-actual_i8rj50.png",
     link: "https://www.dolaractual.com.ar/",
     span: "full",
   },
