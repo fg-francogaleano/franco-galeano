@@ -8,7 +8,8 @@ import About from "../components/sections/About";
 import Projects from "../components/sections/Projects";
 import Contact from "../components/sections/Contact";
 import Footer from "../components/sections/Footer";
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from "@/components/ui/sonner";
+import { LocaleProvider } from "../components/ui/LocaleProvider";
 
 const Home = () => {
   // Scroll reveal observer
@@ -30,18 +31,20 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden" style={{ background: "var(--bg)" }}>
-      <ParticleField />
-      <SideNav />
-      <main className="relative z-10">
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-      <Toaster />
-    </div>
+    <LocaleProvider>
+      <div className="relative min-h-screen w-full overflow-x-hidden" style={{ background: "var(--bg)" }}>
+        <ParticleField />
+        <SideNav />
+        <main className="relative z-10">
+          <Hero />
+          <About />
+          <Projects />
+          <Contact />
+        </main>
+        <Footer />
+        <Toaster />
+      </div>
+    </LocaleProvider>
   );
 };
 

@@ -1,15 +1,17 @@
 import React from "react";
 import { Code2, Server, Database, Wrench } from "lucide-react";
-import { profile, aboutCopy, stats, skills } from "../../data/mock";
+import { useLocale } from "../ui/LocaleProvider";
 
 const categoryIcon = {
   Frontend: Code2,
   Backend: Server,
   "Bases de datos": Database,
+  Databases: Database,
   Tooling: Wrench,
 };
 
 const About = () => {
+  const { t } = useLocale();
   return (
     <section id="about" className="relative w-full md:pl-[88px] py-24 md:py-32">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
@@ -19,7 +21,7 @@ const About = () => {
             className="font-grotesk text-xs tracking-[0.32em] uppercase"
             style={{ color: "var(--accent)" }}
           >
-            {aboutCopy.sectionNumber}
+            {t.about.sectionNumber}
           </span>
           <span className="h-px w-12" style={{ background: "var(--accent)" }} />
           <h2
@@ -30,7 +32,7 @@ const About = () => {
               letterSpacing: "-0.02em",
             }}
           >
-            {aboutCopy.sectionTitle}
+            {t.about.sectionTitle}
           </h2>
         </div>
 
@@ -38,7 +40,7 @@ const About = () => {
           {/* Bio */}
           <div className="lg:col-span-7 reveal">
             <div className="space-y-6">
-              {aboutCopy.paragraphs.map((p, i) => (
+              {t.about.paragraphs.map((p, i) => (
                 <p
                   key={i}
                   className="font-grotesk text-base md:text-lg leading-relaxed"
@@ -51,7 +53,7 @@ const About = () => {
 
             {/* Skills */}
             <div className="mt-14 space-y-8">
-              {skills.map((group) => {
+              {t.skills.map((group) => {
                 const Icon = categoryIcon[group.category] || Code2;
                 return (
                   <div key={group.category} className="reveal">
@@ -106,8 +108,8 @@ const About = () => {
                 style={{ borderColor: "rgba(224,225,221,0.12)" }}
               >
                 <img
-                  src={profile.avatar}
-                  alt={`Retrato de ${profile.name}`}
+                  src={t.profile.avatar}
+                  alt={`Portrait of ${t.profile.name}`}
                   className="w-full h-[480px] md:h-[580px] object-cover"
                   loading="lazy"
                 />
@@ -121,20 +123,20 @@ const About = () => {
                 <div className="absolute left-0 right-0 bottom-0 p-5 flex items-end justify-between">
                   <div>
                     <div className="font-grotesk text-[10px] tracking-[0.32em] uppercase text-white/50">
-                      Based in
+                      {t.about.baseIn}
                     </div>
                     <div
                       className="font-display text-lg"
                       style={{ color: "var(--text)", fontWeight: 600 }}
                     >
-                      {profile.location}
+                      {t.profile.location}
                     </div>
                   </div>
                   <span
                     className="font-grotesk text-[10px] tracking-[0.32em] uppercase"
                     style={{ color: "var(--accent)" }}
                   >
-                    Disponible
+                    {t.about.available}
                   </span>
                 </div>
               </div>

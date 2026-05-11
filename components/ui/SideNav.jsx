@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Home, User, FolderGit2, Mail, Menu, X } from "lucide-react";
-import { navItems } from "../../data/mock";
+import { useLocale } from "./LocaleProvider";
 
 const iconMap = { Home, User, FolderGit2, Mail };
 
 const SideNav = () => {
+  const { locale, setLocale, t } = useLocale();
   const [active, setActive] = useState("hero");
   const [open, setOpen] = useState(false);
 
+  const toggleLanguage = () => {
+    setLocale(locale === "es" ? "en" : "es");
+  };
+
   useEffect(() => {
     const onScroll = () => {
-      const offsets = navItems.map((n) => {
+      const offsets = t.navItems.map((n) => {
         const el = document.getElementById(n.id);
         if (!el) return { id: n.id, top: Infinity };
         const rect = el.getBoundingClientRect();
@@ -22,7 +27,7 @@ const SideNav = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [t.navItems]);
 
   const go = (id) => {
     const el = document.getElementById(id);
@@ -34,7 +39,7 @@ const SideNav = () => {
     <>
       {/* Desktop side nav */}
       <nav
-        aria-label="Navegacion principal"
+        aria-label={t.sideNav.navLabel}
         className="hidden md:flex fixed left-0 top-0 h-screen w-[88px] z-40 flex-col items-center justify-center gap-2 border-r border-white/5"
         style={{ backdropFilter: "blur(14px)" }}
       >
@@ -47,7 +52,7 @@ const SideNav = () => {
           </span>
         </div>
         <ul className="flex flex-col gap-1">
-          {navItems.map((n) => {
+          {t.navItems.map((n) => {
             const Icon = iconMap[n.icon] || Home;
             const isActive = active === n.id;
             return (
@@ -85,27 +90,45 @@ const SideNav = () => {
             );
           })}
         </ul>
+        <button
+          type="button"
+          aria-label={t.sideNav.toggleLabel}
+          onClick={toggleLanguage}
+          className="absolute bottom-16 left-1/2 -translate-x-1/2 text-sm font-grotesk tracking-[0.3em] text-white/40 transition-colors duration-300 hover:text-white"
+        >
+          {t.sideNav.languageButton}
+        </button>
         <div className="absolute bottom-7 left-1/2 -translate-x-1/2 text-[10px] font-grotesk tracking-[0.3em] text-white/30 [writing-mode:vertical-rl] rotate-180">
-          Portfolio · 2026
+          {t.sideNav.portfolioLabel}
         </div>
       </nav>
 
       {/* Mobile top bar */}
       <div
         className="md:hidden fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-5 h-14 border-b border-white/5"
-        style={{ background: "rgba(13,20,33,0.7)", backdropFilter: "blur(14px)" }}
+        style={{ background: "rgba(13,20,33,0.2", backdropFilter: "blur(20px)" }}
       >
         <span className="font-grotesk text-xs tracking-[0.3em] text-[var(--accent)]">
           FG
         </span>
-        <button
-          type="button"
-          aria-label={open ? "Cerrar men\u00fa" : "Abrir men\u00fa"}
-          onClick={() => setOpen((v) => !v)}
-          className="text-white/80"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            aria-label={t.sideNav.toggleLabel}
+            onClick={toggleLanguage}
+            className="text-white/80 font-grotesk text-sm uppercase tracking-[0.24em]"
+          >
+            {t.sideNav.languageButton}
+          </button>
+          <button
+            type="button"
+            aria-label={open ? t.sideNav.mobileCloseMenu : t.sideNav.mobileOpenMenu}
+            onClick={() => setOpen((v) => !v)}
+            className="text-white/80"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
       {open && (
         <div
@@ -113,7 +136,7 @@ const SideNav = () => {
           style={{ background: "rgba(13,20,33,0.95)", backdropFilter: "blur(16px)" }}
         >
           <ul className="flex flex-col gap-2 p-6">
-            {navItems.map((n) => {
+            {t.navItems.map((n) => {
               const Icon = iconMap[n.icon] || Home;
               const isActive = active === n.id;
               return (

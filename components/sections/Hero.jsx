@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowDownRight, Send } from "lucide-react";
-import { profile } from "../../data/mock";
+import { useLocale } from "../ui/LocaleProvider";
 
 // Custom typed text effect (replaces react-typed dependency)
 const useTyped = (words, opts = {}) => {
@@ -90,7 +90,8 @@ const MagneticButton = ({ children, onClick, primary = false, ariaLabel, icon: I
 };
 
 const Hero = () => {
-  const typed = useTyped(profile.rotatingRoles);
+  const { t } = useLocale();
+  const typed = useTyped(["developer", "freelancer"]);
   const goTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -104,7 +105,7 @@ const Hero = () => {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
-          src={profile.heroImage}
+          src={t.profile.heroImage}
           alt=""
           aria-hidden
           className="w-full h-full object-cover"
@@ -123,7 +124,7 @@ const Hero = () => {
         <div className="max-w-350 mx-auto px-6 md:px-12 pb-24 md:pb-28 pt-32">
           <div className="flex items-center gap-3 mb-4 reveal">
             <span className="font-grotesk text-[11px] tracking-[0.32em] uppercase text-accent">
-              Full Stack Developer
+              Full-Stack Developer
             </span>
           </div>
 
@@ -138,15 +139,15 @@ const Hero = () => {
               color: "var(--text)",
             }}
           >
-            {profile.name}
+            {t.profile.name}
           </h1>
 
           <div
-            className="mt-6 flex flex-wrap items-baseline gap-3 reveal"
+            className="mt-6 mb-3 flex flex-wrap items-baseline gap-3 reveal"
             style={{ color: "rgba(224,225,221,0.85)" }}
           >
             <span className="font-grotesk text-base md:text-xl tracking-wide">
-              {profile.subtitlePrefix}
+              {t.profile.subtitlePrefix}
             </span>
             <span
               className="font-display text-2xl md:text-4xl"
@@ -163,30 +164,30 @@ const Hero = () => {
             className="mt-8 max-w-xl font-grotesk text-base md:text-lg leading-relaxed reveal"
             style={{ color: "rgba(224,225,221,0.7)" }}
           >
-            {profile.tagline}
+            {t.profile.tagline}
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4 reveal">
             <MagneticButton
               primary
               onClick={() => goTo("projects")}
-              ariaLabel="Ver proyectos"
+              ariaLabel={t.hero.viewProjects}
               icon={ArrowDownRight}
             >
-              View projects
+              {t.hero.viewProjects}
             </MagneticButton>
             <MagneticButton
               onClick={() => goTo("contact")}
-              ariaLabel="Contactar"
+              ariaLabel={t.hero.contactMe}
               icon={Send}
             >
-              Contact me
+              {t.hero.contactMe}
             </MagneticButton>
           </div>
 
           <div className="mt-20 flex items-center gap-4 reveal">
             <span className="font-grotesk text-[10px] tracking-[0.4em] uppercase text-white/40">
-              Scroll
+              {t.hero.scrollHint}
             </span>
             <span
               className="h-px w-16"

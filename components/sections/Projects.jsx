@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { projects } from "../../data/mock";
+import { useLocale } from "../ui/LocaleProvider";
 
 const spanClass = (span) => {
   if (span === "large") return "lg:col-span-8";
@@ -8,7 +8,7 @@ const spanClass = (span) => {
   return "lg:col-span-12";
 };
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, caseStudyLabel }) => {
   const [hover, setHover] = useState(false);
   const isFull = project.span === "full";
   return (
@@ -102,7 +102,7 @@ const ProjectCard = ({ project }) => {
           className="inline-flex items-center gap-2 font-grotesk text-xs tracking-[0.28em] uppercase transition-colors duration-500"
           style={{ color: hover ? "var(--accent)" : "var(--text)" }}
         >
-          <span>Ver caso de estudio</span>
+          <span>{caseStudyLabel}</span>
           <ArrowUpRight
             size={16}
             strokeWidth={1.6}
@@ -119,6 +119,7 @@ const ProjectCard = ({ project }) => {
 };
 
 const Projects = () => {
+  const { t } = useLocale();
   return (
     <section
       id="projects"
@@ -147,21 +148,20 @@ const Projects = () => {
                 letterSpacing: "-0.02em",
               }}
             >
-              Proyectos seleccionados
+              {t.projects.sectionTitle}
             </h2>
           </div>
           <p
             className="font-grotesk text-sm md:text-base max-w-md"
             style={{ color: "rgba(224,225,221,0.65)" }}
           >
-            Una selección de trabajos recientes — productos digitales, sitios
-            para marcas y experiencias interactivas.
+            {t.projects.description}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-7">
-          {projects.map((p) => (
-            <ProjectCard key={p.id} project={p} />
+          {t.projects.items.map((p) => (
+            <ProjectCard key={p.id} project={p} caseStudyLabel={t.projects.caseStudy} />
           ))}
         </div>
       </div>

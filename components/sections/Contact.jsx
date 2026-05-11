@@ -4,7 +4,7 @@ import { VscGithubAlt } from "react-icons/vsc";
 import { FiLinkedin } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
-import { profile } from "../../data/mock";
+import { useLocale } from "../ui/LocaleProvider";
 import { Button } from "../ui/button";
 
 const FloatingField = ({ id, label, type = "text", multiline = false, value, onChange, error }) => {
@@ -63,6 +63,7 @@ const FloatingField = ({ id, label, type = "text", multiline = false, value, onC
 };
 
 const Contact = () => {
+  const { t } = useLocale();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
@@ -77,12 +78,12 @@ const Contact = () => {
 
   const validate = () => {
     const e = {};
-    if (!form.name.trim()) e.name = "Tu nombre es requerido";
-    if (!form.email.trim()) e.email = "Tu email es requerido";
+    if (!form.name.trim()) e.name = t.contact.validation.name;
+    if (!form.email.trim()) e.email = t.contact.validation.email;
     else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email))
-      e.email = "Email inválido";
+      e.email = t.contact.validation.invalidEmail;
     if (!form.message.trim() || form.message.trim().length < 10)
-      e.message = "Contame un poco más (mínimo 10 caracteres)";
+      e.message = t.contact.validation.message;
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -112,8 +113,8 @@ const Contact = () => {
 
       console.log("Email sent successfully:", response);
       setStatus("success");
-      toast.success("Mensaje enviado", { 
-        description: "Te respondo en menos de 24h." 
+      toast.success(t.contact.toast.success, { 
+        description: t.contact.toast.successDescription 
       });
       setForm({ name: "", email: "", message: "" });
       setTimeout(() => setStatus("idle"), 2400);
@@ -125,8 +126,8 @@ const Contact = () => {
         message: err.message,
       });
       setStatus("error");
-      toast.error("Algo falló", { 
-        description: "Intentá de nuevo en un momento." 
+      toast.error(t.contact.toast.error, { 
+        description: t.contact.toast.errorDescription 
       });
       setTimeout(() => setStatus("idle"), 2400);
     }
@@ -152,29 +153,29 @@ const Contact = () => {
               className="font-display text-4xl md:text-6xl mb-6 font-extrabold"
               style={{ letterSpacing: "-0.025em", lineHeight: 1 }}
             >
-              Iniciemos tu próximo proyecto.
+              {t.contact.sectionTitle}
             </h2>
             <p
-              className="font-grotesk text-base md:text-lg max-w-md mt-1"
+              className="font-grotesk text-base md:text-lg max-w-md mt-15"
               style={{ color: "rgba(224,225,221,0.7)"}}
             >
-              ¿Tenés una idea, producto o desafío técnico? Escribime y arranquemos la conversación.
+              {t.contact.description}
             </p>
 
             <div className="mt-12 space-y-4">
               <a
-                href={`mailto:${profile.email}`}
+                href={`mailto:${t.profile.email}`}
                 className="flex items-center gap-3 font-grotesk text-sm tracking-wide group"
                 style={{ color: "var(--text)" }}
               >
                 <Mail size={18} strokeWidth={1.5} style={{ color: "var(--accent)" }} />
                 <span className="group-hover:text-accent transition-colors duration-500">
-                  {profile.email}
+                  {t.profile.email}
                 </span>
               </a>
               <div className="flex items-center gap-4 pt-4">
                 <a
-                  href={profile.social.github}
+                  href={t.profile.social.github}
                   target="_blank"
                   rel="noreferrer"
                   aria-label="GitHub"
@@ -183,7 +184,7 @@ const Contact = () => {
                   <VscGithubAlt size={20} />
                 </a>
                 <a
-                  href={profile.social.linkedin}
+                  href={t.profile.social.linkedin}
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"
@@ -210,14 +211,14 @@ const Contact = () => {
               <div className="space-y-2">
                 <FloatingField
                   id="name"
-                  label="Nombre"
+                  label={t.contact.labels.name}
                   value={form.name}
                   onChange={handle("name")}
                   error={errors.name}
                 />
                 <FloatingField
                   id="email"
-                  label="Email"
+                  label={t.contact.labels.email}
                   type="email"
                   value={form.email}
                   onChange={handle("email")}
@@ -225,7 +226,7 @@ const Contact = () => {
                 />
                 <FloatingField
                   id="message"
-                  label="Mensaje"
+                  label={t.contact.labels.message}
                   multiline
                   value={form.message}
                   onChange={handle("message")}
@@ -235,14 +236,14 @@ const Contact = () => {
 
               <div className="mt-10 flex items-center justify-between">
                 <span className="font-grotesk text-[11px] tracking-[0.28em] uppercase text-white/45">
-                  Respondo en menos de 24h
+                  {t.contact.reply24h}
                 </span>
                 <Button
                   ref={buttonRef}
                   type="submit"
                   variant="outlined"
                   disabled={status === "sending"}
-                  aria-label="Enviar mensaje"
+                  aria-label={t.contact.submit}
                   className="relative inline-flex items-center justify-center transition-all duration-500 cursor-pointer"
                   onMouseEnter={(e) => {
                     if (status === "success") return;
@@ -271,7 +272,7 @@ const Contact = () => {
                     <Check size={22} strokeWidth={2} />
                   ) : (
                     <span className="flex items-center gap-3 font-grotesk text-[12px] tracking-[0.28em] uppercase">
-                      {status === "sending" ? "Enviando..." : "Enviar"}
+                      {status === "sending" ? t.contact.sending : t.contact.submit}
                       <Send size={14} strokeWidth={1} />
                     </span>
                   )}
