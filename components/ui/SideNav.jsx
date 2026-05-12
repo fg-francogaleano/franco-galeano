@@ -171,7 +171,7 @@ const SideNav = () => {
       <div
         className="md:hidden fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-5 h-14 border-b border-white/5"
         style={{
-          background: "rgba(13,20,33,0.2",
+          background: "rgba(13,20,33,0.3",
           backdropFilter: "blur(20px)",
         }}
       >
