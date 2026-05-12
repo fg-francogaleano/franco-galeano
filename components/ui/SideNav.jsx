@@ -105,12 +105,10 @@ const SideNav = () => {
                 >
                   <Icon size={22} strokeWidth={1.5} />
                   <span
-                    className="absolute left-full ml-3 px-3 py-1 font-grotesk text-[11px] uppercase tracking-[0.18em] whitespace-nowrap opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 pointer-events-none"
+                    className="absolute left-full ml-3 px-3 py-1 font-grotesk text-[11px] uppercase tracking-[0.18em] whitespace-nowrap opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 pointer-events-none border"
                     style={{
-                      background: "rgba(27,38,59,0.7)",
-                      backdropFilter: "blur(10px)",
-                      color: "var(--text)",
-                      border: "1px solid rgba(0,210,255,0.18)",
+                      background: "rgba(13,20,33,0.3)",
+                      backdropFilter: "blur(14px)",
                     }}
                   >
                     {n.label}
@@ -160,7 +158,9 @@ const SideNav = () => {
                 }}
                 className="w-full rounded-2xl text-left font-grotesk text-xs uppercase tracking-[0.18em] transition-colors duration-200"
               >
-                <span className="text-xs cursor-pointer">{otherLocaleLabel}</span>
+                <span className="text-xs cursor-pointer">
+                  {otherLocaleLabel}
+                </span>
               </button>
             </div>
           )}
@@ -175,7 +175,7 @@ const SideNav = () => {
           backdropFilter: "blur(20px)",
         }}
       >
-        <span className="font-grotesk text-xs tracking-[0.3em] text-[var(--accent)]">
+        <span className="font-grotesk text-xs tracking-[0.3em] text-accent">
           FG
         </span>
         <div className="flex items-center gap-3">
