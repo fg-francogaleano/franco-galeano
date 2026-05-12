@@ -8,7 +8,7 @@ const spanClass = (span) => {
   return "lg:col-span-12";
 };
 
-const ProjectCard = ({ project, caseStudyLabel }) => {
+const ProjectCard = ({ project }) => {
   const [hover, setHover] = useState(false);
   const isFull = project.span === "full";
   return (
@@ -88,7 +88,7 @@ const ProjectCard = ({ project, caseStudyLabel }) => {
               key={t}
               className="font-grotesk text-[10px] tracking-[0.2em] uppercase px-2.5 py-1 border"
               style={{
-                background: "rgba(13,20,33,0.05)",
+                background: "rgba(13,20,33,0.1)",
                 backdropFilter: "blur(10px)",
                 color: "rgba(224,225,221,0.85)",
               }}
@@ -102,7 +102,7 @@ const ProjectCard = ({ project, caseStudyLabel }) => {
           className="inline-flex items-center gap-2 font-grotesk text-xs tracking-[0.28em] uppercase transition-colors duration-500"
           style={{ color: hover ? "var(--accent)" : "var(--text)" }}
         >
-          <span>{caseStudyLabel}</span>
+          <span>Ver caso de estudio</span>
           <ArrowUpRight
             size={16}
             strokeWidth={1.6}
@@ -120,12 +120,13 @@ const ProjectCard = ({ project, caseStudyLabel }) => {
 
 const Projects = () => {
   const { t } = useLocale();
+
   return (
     <section
       id="projects"
-      className="relative w-full md:pl-[88px] py-24 md:py-32"
+      className="relative w-full md:pl-22 py-24 md:py-32"
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div className="max-w-350 mx-auto px-6 md:px-12">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-14 reveal">
           <div>
             <div className="flex items-center gap-4 mb-4">
@@ -161,7 +162,7 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-7">
           {t.projects.items.map((p) => (
-            <ProjectCard key={p.id} project={p} caseStudyLabel={t.projects.caseStudy} />
+            <ProjectCard key={p.id} project={p} />
           ))}
         </div>
       </div>

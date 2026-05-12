@@ -91,7 +91,7 @@ const MagneticButton = ({ children, onClick, primary = false, ariaLabel, icon: I
 
 const Hero = () => {
   const { t } = useLocale();
-  const typed = useTyped(["developer", "freelancer"]);
+  const typed = useTyped(t.profile.rotatingRoles);
   const goTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -124,7 +124,7 @@ const Hero = () => {
         <div className="max-w-350 mx-auto px-6 md:px-12 pb-24 md:pb-28 pt-32">
           <div className="flex items-center gap-3 mb-4 reveal">
             <span className="font-grotesk text-[11px] tracking-[0.32em] uppercase text-accent">
-              Full-Stack Developer
+              {t.hero.topLabel}
             </span>
           </div>
 
