@@ -169,10 +169,9 @@ const SideNav = () => {
 
       {/* Mobile top bar */}
       <div
-        className="md:hidden fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-5 h-14 border-b border-white/5"
+        className="md:hidden fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-5 h-14 border-b border-white/5 filter backdrop-blur-lg"
         style={{
-          background: "rgba(13,20,33,0.3",
-          backdropFilter: "blur(20px)",
+          // background: "rgba(3, 3, 4, 0.1)",
         }}
       >
         <span className="font-grotesk text-xs tracking-[0.3em] text-accent">

@@ -14,13 +14,19 @@ const useTyped = (words, opts = {}) => {
     let t;
     if (phase === "typing") {
       if (text.length < current.length) {
-        t = setTimeout(() => setText(current.slice(0, text.length + 1)), typeSpeed);
+        t = setTimeout(
+          () => setText(current.slice(0, text.length + 1)),
+          typeSpeed,
+        );
       } else {
         t = setTimeout(() => setPhase("deleting"), holdMs);
       }
     } else if (phase === "deleting") {
       if (text.length > 0) {
-        t = setTimeout(() => setText(current.slice(0, text.length - 1)), deleteSpeed);
+        t = setTimeout(
+          () => setText(current.slice(0, text.length - 1)),
+          deleteSpeed,
+        );
       } else {
         setWordIdx((i) => (i + 1) % words.length);
         setPhase("typing");
@@ -32,7 +38,14 @@ const useTyped = (words, opts = {}) => {
   return text;
 };
 
-const MagneticButton = ({ children, onClick, primary = false, ariaLabel, icon: Icon, variant = "default" }) => {
+const MagneticButton = ({
+  children,
+  onClick,
+  primary = false,
+  ariaLabel,
+  icon: Icon,
+  variant = "default",
+}) => {
   const ref = useRef(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
@@ -82,9 +95,11 @@ const MagneticButton = ({ children, onClick, primary = false, ariaLabel, icon: I
         boxShadow: primary ? "var(--glow-accent)" : "none",
       }}
     >
-      <span className="btn-travel" aria-hidden />
-      <span className="relative z-10">{children}</span>
-      {Icon && <Icon size={16} strokeWidth={1.6} className="relative z-10" />}
+      <span className="flex items-center justify-center gap-2">
+        <span className="btn-travel" aria-hidden />
+        <span className="relative z-10">{children}</span>
+        {Icon && <Icon size={16} strokeWidth={1.6} className="relative z-10" />}
+      </span>
     </button>
   );
 };
@@ -200,4 +215,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;    
+export default Hero;
