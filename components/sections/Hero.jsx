@@ -95,7 +95,7 @@ const MagneticButton = ({
         boxShadow: primary ? "var(--glow-accent)" : "none",
       }}
     >
-      <span className="flex items-center justify-center gap-2">
+      <span className="flex gap-2 m-auto">
         <span className="btn-travel" aria-hidden />
         <span className="relative z-10">{children}</span>
         {Icon && <Icon size={16} strokeWidth={1.6} className="relative z-10" />}

@@ -105,10 +105,9 @@ const SideNav = () => {
                 >
                   <Icon size={22} strokeWidth={1.5} />
                   <span
-                    className="absolute left-full ml-3 px-3 py-1 font-grotesk text-[11px] uppercase tracking-[0.18em] whitespace-nowrap opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 pointer-events-none border"
+                    className="absolute left-full ml-3 px-3 py-1 font-grotesk text-[11px] uppercase tracking-[0.18em] whitespace-nowrap opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 border filter backdrop-blur-lg"
                     style={{
-                      background: "rgba(13,20,33,0.3)",
-                      backdropFilter: "blur(14px)",
+                      background: "rgba(13,20,33,0.20)",
                     }}
                   >
                     {n.label}
@@ -116,7 +115,7 @@ const SideNav = () => {
                   {isActive && (
                     <span
                       aria-hidden
-                      className="absolute -left-[1px] top-1/2 -translate-y-1/2 h-7 w-[2px]"
+                      className="absolute -left-px top-1/2 -translate-y-1/2 h-7 w-0.5"
                       style={{
                         background: "var(--accent)",
                         boxShadow: "var(--glow-accent)",
@@ -223,10 +222,9 @@ const SideNav = () => {
       </div>
       {open && (
         <div
-          className="md:hidden fixed inset-0 z-30 pt-14"
+          className="md:hidden fixed inset-0 z-30 pt-14 filter backdrop-blur-lg"
           style={{
-            background: "rgba(13,20,33,0.95)",
-            backdropFilter: "blur(16px)",
+            background: "rgba(13,20,33,0.3)",
           }}
         >
           <ul className="flex flex-col gap-2 p-6">

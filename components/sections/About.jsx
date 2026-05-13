@@ -113,31 +113,33 @@ const About = () => {
                   className="w-full h-[480px] md:h-[580px] object-cover"
                   loading="lazy"
                 />
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, transparent 55%, rgba(13,20,33,0.85) 100%)",
-                  }}
-                />
-                <div className="absolute left-0 right-0 bottom-0 p-5 flex items-end justify-between">
-                  <div>
-                    <div className="font-grotesk text-[10px] tracking-[0.32em] uppercase text-white/50">
-                      {t.about.baseIn}
-                    </div>
-                    <div
-                      className="font-display text-lg"
-                      style={{ color: "var(--text)", fontWeight: 600 }}
-                    >
-                      {t.profile.location}
-                    </div>
-                  </div>
+                <div className="absolute top-0 left-0 right-0 p-5 flex items-start justify-between">
                   <span
                     className="font-grotesk text-[10px] tracking-[0.32em] uppercase"
                     style={{ color: "var(--accent)" }}
                   >
                     {t.about.available}
                   </span>
+                </div>
+                <div className="absolute left-0 right-0 bottom-0 p-5 flex items-end justify-between">
+                  <div>
+                    {/* <div className="font-grotesk text-[10px] tracking-[0.32em] uppercase text-white/50">
+                      {t.about.baseIn}
+                    </div> */}
+                    <div
+                      className="font-display text-lg"
+                      style={{ color: "var(--text)", fontWeight: 600 }}
+                    >
+                      {t.profile.location}
+                    </div>
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background:
+                          "linear-gradient(180deg, transparent 55%, rgba(13,20,33,0.85) 100%)",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
